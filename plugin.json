@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mailtea",
+  "version": "0.1.0",
+  "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+  "author": {
+    "name": "Mailtea",
+    "url": "https://mailtea.app"
+  },
+  "homepage": "https://mailtea.app",
+  "repository": "https://github.com/mailtea-app/mailtea-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mailtea",
+    "email",
+    "newsletter",
+    "mcp",
+    "agent-skills",
+    "transactional-email",
+    "agent-plugins"
+  ]
+}
