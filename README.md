@@ -14,6 +14,7 @@ mailtea/                         # this package (mirrored as mailtea-agent-plugi
 │   ├── mailtea/SKILL.md         # send / schedule / manage email & newsletters
 │   ├── mailtea-email-design/    # email-safe design (ops + HTML)
 │   └── mailtea-site-design/     # publication website builder
+├── CHANGELOG.md
 ├── README.md
 └── LICENSE
 ```
@@ -39,6 +40,21 @@ Until your client’s marketplace lists Mailtea, clone or copy this folder and e
 git clone https://github.com/mailtea-app/mailtea-agent-plugin.git
 # Then add the cloned directory in your client’s Plugins / Agent Plugins UI.
 ```
+
+### Versioning
+
+There is no npm or PyPI package — the plugin **is** this repository, so a
+[release tag](https://github.com/mailtea-app/mailtea-agent-plugin/releases) is
+how you pin one. `main` always holds the latest; pin when you want the skills
+to stop moving under you:
+
+```bash
+git clone --branch v0.1.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
+```
+
+`plugin.json`'s `version` matches the tag, and every release's notes come from
+[CHANGELOG.md](./CHANGELOG.md). Semver: a **patch** sharpens skill wording, a
+**minor** adds a skill or an MCP surface, a **major** removes or renames one.
 
 Set the MCP env your client asks for:
 
