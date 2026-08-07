@@ -82,13 +82,7 @@ The reusable plugin is the agent-facing surface for these product areas:
 
 It does **not** replace Mailtea Studio (the human dashboard) or the typed SDKs/CLI for application code — those stay first-class for operators and developers. Use the plugin when an **AI agent client** should operate the same control plane.
 
-## Authoring notes (monorepo)
-
-Canonical skill sources live under `skills/` in the Mailtea monorepo. Refresh the copies here with:
-
-```bash
-bash scripts/sync-agent-plugin-skills.sh
-```
+## Authoring notes
 
 Do not add client-only hooks, commands, or marketplace metadata to the top level of `plugin.json`. Put those under a reverse-domain `extensions` key or a client-owned directory per [client extensions](https://agent-plugins.org/plugin-authors/client-extensions).
 
@@ -97,7 +91,7 @@ Do not add client-only hooks, commands, or marketplace metadata to the top level
 - Spec: [agent-plugins.org](https://agent-plugins.org/) · [Build a plugin](https://agent-plugins.org/plugin-authors)
 - MCP package: [`mailtea-mcp`](https://www.npmjs.com/package/mailtea-mcp)
 - Skills-only mirror: [mailtea-agent-skills](https://github.com/mailtea-app/mailtea-agent-skills)
-- Docs: [`docs/agent-plugin.md`](../docs/agent-plugin.md) (in the monorepo)
+- Docs: [Agent Plugin](https://docs.mailtea.app/docs/documentation/agent-plugin)
 
 ## License
 
