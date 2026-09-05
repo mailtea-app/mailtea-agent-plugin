@@ -6,6 +6,13 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## 0.2.0 (2026-09-05)
+
+- Added a Codex plugin at `plugins/mailtea/` with a native manifest, official Mailtea icon, three bundled skills, and hosted OAuth MCP at `https://api.mailtea.app/mcp`.
+- Added a repository marketplace at `.agents/plugins/marketplace.json` for installation with `codex plugin marketplace add mailtea-app/mailtea-agent-plugin` and `codex plugin add mailtea@mailtea`.
+- Kept the portable Agent Plugins manifest and stdio configuration available for other clients and self-hosted installations.
+- Added Codex setup and email workflow guidance.
+
 ## 0.1.0 (2026-08-07)
 
 - Added: the first portable [Agent Plugins](https://agent-plugins.org/) 1.0.0
