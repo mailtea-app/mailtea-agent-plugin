@@ -1,0 +1,45 @@
+{
+  "name": "mailtea",
+  "version": "0.2.0",
+  "description": "Send, schedule, and manage email with Mailtea in Codex.",
+  "author": {
+    "name": "Mailtea",
+    "url": "https://mailtea.app"
+  },
+  "homepage": "https://mailtea.app",
+  "repository": "https://github.com/mailtea-app/mailtea-agent-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mailtea",
+    "email",
+    "newsletter",
+    "mcp",
+    "agent-skills",
+    "transactional-email",
+    "agent-plugins"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Mailtea",
+    "shortDescription": "Send and manage email with Mailtea",
+    "longDescription": "Send and schedule transactional email, check delivery status, draft newsletters, manage contacts, design email templates, and build publication websites. Connect your Mailtea account through the hosted MCP server using OAuth.",
+    "developerName": "Mailtea",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://mailtea.app",
+    "privacyPolicyURL": "https://mailtea.app/privacy-policy",
+    "termsOfServiceURL": "https://mailtea.app/terms-of-service",
+    "defaultPrompt": [
+      "Send an email with Mailtea",
+      "Check the delivery status of an email",
+      "Draft a newsletter for my Mailtea publication"
+    ],
+    "brandColor": "#C85A3A",
+    "composerIcon": "./assets/mailtea-mark.svg",
+    "logo": "./assets/mailtea-mark.svg"
+  }
+}

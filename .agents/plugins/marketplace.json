@@ -1,0 +1,20 @@
+{
+  "name": "mailtea",
+  "interface": {
+    "displayName": "Mailtea"
+  },
+  "plugins": [
+    {
+      "name": "mailtea",
+      "source": {
+        "source": "local",
+        "path": "./plugins/mailtea"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

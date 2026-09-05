@@ -1,0 +1,6 @@
+# Include only the distributable Codex marketplace from agent configuration.
+!.agents/
+.agents/*
+!.agents/plugins/
+.agents/plugins/*
+!.agents/plugins/marketplace.json
