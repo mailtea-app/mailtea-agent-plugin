@@ -2,12 +2,37 @@
 
 Portable [Agent Plugins](https://agent-plugins.org/) package for Mailtea — one directory that any compatible client can load for **skills** and the **Mailtea MCP server**.
 
-Spec target: **Agent Plugins 1.0.0**.
+Spec target: **Agent Plugins 1.0.0**, with a native Codex package and repository marketplace.
+
+## Get started in Codex
+
+```bash
+codex plugin marketplace add mailtea-app/mailtea-agent-plugin --ref codex/mailtea-codex-plugin
+codex plugin add mailtea@mailtea
+```
+
+This is the Codex preview. Open a new task, connect your Mailtea account through
+browser sign-in, and choose your publication and access. Then paste:
+
+> Help me send my first email with Mailtea. Check my setup and guide me through anything missing.
+
+You need a Mailtea account and a verified sending domain to send email. No API
+key or local Node.js process is needed for this hosted connection. Codex checks
+what is ready and asks for any missing email details before sending.
+
+Included skills: **Mailtea email**, **Mailtea email design**, and **Mailtea website
+design**. Codex chooses the relevant skill automatically.
+
+[Full getting-started guide, skills list, and example prompts](./plugins/mailtea/README.md).
+The repository marketplace is maintained by Mailtea; the preview is not yet
+listed in OpenAI's public directory.
 
 ## Layout
 
 ```text
 mailtea/                         # this package (mirrored as mailtea-agent-plugin)
+├── .agents/plugins/marketplace.json # Codex repository marketplace
+├── plugins/mailtea/             # isolated Codex package: manifest, MCP, skills, assets
 ├── plugin.json                  # required portable manifest
 ├── mcp.json                     # portable MCP server config
 ├── skills/
@@ -28,9 +53,9 @@ mailtea/                         # this package (mirrored as mailtea-agent-plugi
 | **`mailtea-email-design` skill** | How the email should look — structured ops (preferred) or hand-written email-safe HTML |
 | **`mailtea-site-design` skill** | Public publication site: pages, presets, theme, draft → publish |
 
-Auth is **client-managed** (Agent Plugins does not put secrets in `mcp.json`). Create a personal access token (`mt_pat_…`) in **Settings → API keys**, then inject `MAILTEA_API_TOKEN` (and optionally `MAILTEA_PUBLICATION_ID` / `MAILTEA_API_BASE_URL`) into the MCP process via your client’s env/UI.
+For the portable stdio package, auth is **client-managed** (Agent Plugins does not put secrets in `mcp.json`). Create a personal access token (`mt_pat_…`) in **Settings → API keys**, then inject `MAILTEA_API_TOKEN` (and optionally `MAILTEA_PUBLICATION_ID` / `MAILTEA_API_BASE_URL`) into the MCP process via your client’s env/UI.
 
-## Install / load
+## Install / load in other clients
 
 Compatible Agent Plugins clients (at 1.0.0 launch): **Cursor**, **ChatGPT / Codex**, **GitHub Copilot**, **VS Code**, **Kiro**. Each client owns installation UX — point it at this directory (or the published `mailtea-agent-plugin` mirror) the same way you install any other Agent Plugin.
 
@@ -56,7 +81,7 @@ git clone --branch v0.1.0 --depth 1 https://github.com/mailtea-app/mailtea-agent
 [CHANGELOG.md](./CHANGELOG.md). Semver: a **patch** sharpens skill wording, a
 **minor** adds a skill or an MCP surface, a **major** removes or renames one.
 
-Set the MCP env your client asks for:
+For portable stdio installations, set the MCP env your client asks for:
 
 | Variable | Required | Purpose |
 |----------|:--------:|---------|
