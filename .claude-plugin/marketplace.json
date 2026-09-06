@@ -1,0 +1,29 @@
+{
+  "name": "mailtea",
+  "metadata": {
+    "description": "Mailtea plugins for Claude Code — email, email design, and publication websites."
+  },
+  "owner": {
+    "name": "Mailtea",
+    "url": "https://mailtea.app"
+  },
+  "plugins": [
+    {
+      "name": "mailtea",
+      "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://mailtea.app",
+      "license": "MIT",
+      "tags": [
+        "mailtea",
+        "email",
+        "newsletter",
+        "mcp",
+        "transactional-email",
+        "email-design",
+        "website"
+      ]
+    }
+  ]
+}

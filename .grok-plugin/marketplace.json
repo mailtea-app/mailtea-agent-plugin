@@ -1,0 +1,29 @@
+{
+  "name": "mailtea",
+  "description": "Mailtea plugins for Grok Build — email, email design, and publication websites.",
+  "owner": {
+    "name": "Mailtea"
+  },
+  "plugins": [
+    {
+      "name": "mailtea",
+      "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+      "category": "productivity",
+      "source": {
+        "type": "local",
+        "path": "."
+      },
+      "homepage": "https://mailtea.app",
+      "keywords": [
+        "mailtea",
+        "email",
+        "newsletter",
+        "transactional email",
+        "send an email"
+      ],
+      "domains": [
+        "mailtea.app"
+      ]
+    }
+  ]
+}

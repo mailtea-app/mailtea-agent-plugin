@@ -2,9 +2,8 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "mailtea": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "mailtea-mcp"]
+      "type": "streamable-http",
+      "url": "https://api.mailtea.app/mcp"
     }
   }
 }

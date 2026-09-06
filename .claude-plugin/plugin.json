@@ -1,8 +1,15 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "mailtea",
   "version": "0.3.0",
   "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+  "logo": "assets/mailtea-mark.svg",
+  "mcpServers": {
+    "mailtea": {
+      "type": "http",
+      "url": "https://api.mailtea.app/mcp"
+    }
+  },
   "author": {
     "name": "Mailtea",
     "url": "https://mailtea.app"

@@ -1,0 +1,11 @@
+{
+  "name": "mailtea",
+  "version": "0.3.0",
+  "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+  "mcpServers": {
+    "mailtea": {
+      "httpUrl": "https://api.mailtea.app/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}
