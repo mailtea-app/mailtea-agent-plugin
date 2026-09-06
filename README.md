@@ -4,22 +4,28 @@ Portable [Agent Plugins](https://agent-plugins.org/) package for Mailtea — one
 
 Spec target: **Agent Plugins 1.0.0**, with a native Codex package and repository marketplace.
 
-## Install in Codex
+## Get started in Codex
 
 ```bash
-codex plugin marketplace add mailtea-app/mailtea-agent-plugin
+codex plugin marketplace add mailtea-app/mailtea-agent-plugin --ref codex/mailtea-codex-plugin
 codex plugin add mailtea@mailtea
 ```
 
-Open a new Codex task and connect Mailtea through the OAuth sign-in flow. Choose
-your publication and permissions in Mailtea. The Codex package uses the hosted
-MCP server at `https://api.mailtea.app/mcp`; no API key or local Node process is
-needed. Ask Codex to show your publications and available senders, then send an
-email using your verified sender and the exact recipient and content you supply.
+This is the Codex preview. Open a new task, connect your Mailtea account through
+browser sign-in, and choose your publication and access. Then paste:
 
-See [Mailtea for Codex](./plugins/mailtea/README.md) for the send workflow and
-connection help. This is Mailtea's repository marketplace. OpenAI public-directory
-listing requires a separate review.
+> Help me send my first email with Mailtea. Check my setup and guide me through anything missing.
+
+You need a Mailtea account and a verified sending domain to send email. No API
+key or local Node.js process is needed for this hosted connection. Codex checks
+what is ready and asks for any missing email details before sending.
+
+Included skills: **Mailtea email**, **Mailtea email design**, and **Mailtea website
+design**. Codex chooses the relevant skill automatically.
+
+[Full getting-started guide, skills list, and example prompts](./plugins/mailtea/README.md).
+The repository marketplace is maintained by Mailtea; the preview is not yet
+listed in OpenAI's public directory.
 
 ## Layout
 
@@ -68,7 +74,7 @@ how you pin one. `main` always holds the latest; pin when you want the skills
 to stop moving under you:
 
 ```bash
-git clone --branch v0.2.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
+git clone --branch v0.1.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
 ```
 
 `plugin.json`'s `version` matches the tag, and every release's notes come from

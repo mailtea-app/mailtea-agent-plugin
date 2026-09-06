@@ -33,6 +33,34 @@ claude mcp add mailtea -e MAILTEA_API_TOKEN=mt_pat_xxx -- npx -y mailtea-mcp
 
 Self-hosting or local dev? add `-e MAILTEA_API_BASE_URL=http://localhost:7787`.
 
+## Guide a first-time user
+
+For “help me get started” or “help me send my first email”, explain the next
+useful step in plain language. A publication is the workspace for their email,
+audience, and website; do not assume the user knows that term.
+
+1. If the connection is missing, direct the user to connect Mailtea in Codex.
+   Use the browser sign-in flow; never ask for passwords or tokens in chat.
+2. Read `auth.me` and `publication.list`. Use the publication the user named;
+   otherwise ask them to choose if more than one is available. If none is
+   accessible, explain whether they need to create a publication in Mailtea
+   Studio or reconnect with access to an existing one.
+3. Read `sender.list` and `domain.list` for the selected publication, using the
+   live tool schemas. Show available sender addresses without exposing credentials.
+   If the domain or DKIM is unverified, explain the missing verification and link
+   to https://docs.mailtea.app/docs/documentation/domains. Do not change DNS or
+   create senders just because the user asked to check setup.
+4. Ask only for missing sender, recipient, subject, body, or schedule details.
+   Batch missing details into one concise question. A setup check alone does not
+   authorize a send. If the user already gave a complete send instruction, follow it.
+5. After an authorized send, give the email ID and status. Offer to check delivery
+   with `email.get`; never describe API acceptance as delivery to an inbox.
+
+If access is read-only, explain that sending requires reconnecting with sending
+permission. Use the actual server error to guide recovery rather than assuming
+all failed calls mean the user is logged out. Keep existing drafts and content
+intact during setup and troubleshooting.
+
 ## Send a transactional email — `email.send`
 
 A one-shot email to specific recipients (NOT a newsletter to the whole list).
