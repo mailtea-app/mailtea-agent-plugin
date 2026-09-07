@@ -1,7 +1,7 @@
 {
   "name": "mailtea",
   "version": "0.3.0",
-  "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+  "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
   "author": {
     "name": "Mailtea",
     "url": "https://mailtea.app"
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Mailtea",
     "shortDescription": "Send your first email. Design your next newsletter.",
-    "longDescription": "Send and schedule email, check delivery, design newsletters, manage contacts, and build your publication website from a conversation. Connect your Mailtea account, choose your publication, then ask: “Help me send my first email.” Mailtea checks your setup and guides you through any missing sender or domain verification. Three included skills handle email, email design, and website design automatically. No API key, Node.js, or coding is needed for the hosted connection. You need a Mailtea account and a verified sending domain to send. Draft requests stay drafts; sending uses the recipients and content you specify.",
+    "longDescription": "Send and schedule email, check delivery, design newsletters, manage contacts, and build your publication website from a conversation. Connect your Mailtea account, choose your publication, then ask: \u201cHelp me send my first email.\u201d Mailtea checks your setup and guides you through any missing sender or domain verification. Three included skills handle email, email design, and website design automatically. No API key, Node.js, or coding is needed for the hosted connection. You need a Mailtea account and a verified sending domain to send. Draft requests stay drafts; sending uses the recipients and content you specify.",
     "developerName": "Mailtea",
     "category": "Productivity",
     "capabilities": [

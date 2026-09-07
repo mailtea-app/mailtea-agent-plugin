@@ -1,7 +1,7 @@
 {
   "name": "mailtea",
   "metadata": {
-    "description": "Mailtea plugins for Cursor — email, email design, and publication websites."
+    "description": "Mailtea plugins for Cursor \u2014 email, email design, and publication websites."
   },
   "owner": {
     "name": "Mailtea"
@@ -10,7 +10,7 @@
     {
       "name": "mailtea",
       "source": "./",
-      "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+      "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
       "version": "0.3.0",
       "category": "productivity",
       "homepage": "https://mailtea.app",

@@ -1,7 +1,7 @@
 {
   "name": "mailtea",
   "version": "0.3.0",
-  "description": "Send, schedule, and manage email and newsletters with Mailtea — MCP tools plus skills for email ops, email design, and publication websites.",
+  "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
   "logo": "assets/mailtea-mark.svg",
   "author": {
     "name": "Mailtea",
