@@ -6,6 +6,13 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## 0.3.1 (2026-09-11)
+
+- The `mailtea-email` and `mailtea-site-design` skills no longer tell agents to
+  supply a publication id. Every MCP tool now defaults it to the publication the
+  connection is for, so the skills say to omit it and to ask which publication to
+  use only when the connection actually reaches more than one.
+
 ## 0.3.0 (2026-09-06)
 
 - Packaged Mailtea for every plugin client from a single package root. The
