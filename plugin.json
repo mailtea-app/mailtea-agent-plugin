@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mailtea",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
   "author": {
     "name": "Mailtea",

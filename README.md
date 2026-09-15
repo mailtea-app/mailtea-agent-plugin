@@ -242,7 +242,7 @@ There is no npm or PyPI package — the plugin **is** this repository, so a
 how you pin one. `main` always holds the latest:
 
 ```bash
-git clone --branch v0.3.1 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
+git clone --branch v0.4.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
 ```
 
 Every manifest's `version` matches the tag, and each release's notes come from
@@ -455,7 +455,7 @@ There is no npm or PyPI package — the plugin **is** this repository, so a
 how you pin one. `main` always holds the latest:
 
 ```bash
-git clone --branch v0.3.1 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
+git clone --branch v0.4.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
 ```
 
 Every manifest's `version` matches the tag, and each release's notes come from

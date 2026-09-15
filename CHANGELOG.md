@@ -6,6 +6,15 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## 0.4.0 (2026-09-15)
+
+- The `mailtea` skill covers test mode: a test key (`mt_test_…`) whose sends are
+  validated, recorded and webhook-emitting but never delivered, the reserved
+  `test.mailtea.email` recipients that force each outcome, and the `mode` filter
+  on `email.list`. It also says what test mode is not — a test key reads and
+  writes the real contacts, templates, senders and webhooks, so only delivery is
+  simulated — and which calls a test key refuses.
+
 ## 0.3.1 (2026-09-11)
 
 - The `mailtea-email` and `mailtea-site-design` skills no longer tell agents to
