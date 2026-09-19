@@ -3,7 +3,7 @@
   "name": "app.mailtea/mailtea",
   "title": "Mailtea",
   "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "websiteUrl": "https://mailtea.app",
   "repository": {
     "url": "https://github.com/mailtea-app/mailtea-agent-plugin",

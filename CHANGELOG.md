@@ -6,6 +6,26 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## 0.5.0 (2026-09-19)
+
+- Both rules below are Mailtea Cloud only, and the skill says so — a
+  self-hosted install is exempt from each.
+- The skill states the inbound-reply allowance: a team with no verified domain
+  may still reply to whoever wrote to them, but not cc or bcc anyone else, and
+  not follow a `Reply-To` that points away from the sender.
+- The `mailtea` skill says `from` must be on a domain the user's team has
+  verified — any publication of it counts — and that anything else, Mailtea's
+  own addresses included, is refused with `422` and
+  `reason: "DOMAIN_NOT_VERIFIED"`. A team-scoped key naming no publication used
+  to skip that check.
+- The `mailtea` skill says that until the user's team has verified a sending
+  domain of its own, Mailtea only delivers to verified members of that team —
+  whatever `from` is used, and on replies to inbound mail as well. Any other
+  recipient refuses the whole send with `403` and
+  `reason: "system_domain_recipient_restricted"`. The skill tells the agent to
+  report it and point at verifying a domain, rather than retrying or quietly
+  swapping the recipient for one that would be accepted.
+
 ## 0.4.0 (2026-09-15)
 
 - The `mailtea` skill covers test mode: a test key (`mt_test_…`) whose sends are

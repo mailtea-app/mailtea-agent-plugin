@@ -1,7 +1,7 @@
 {
   "name": "mailtea",
   "displayName": "Mailtea",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
   "logo": "assets/mailtea-mark.svg",
   "author": {
