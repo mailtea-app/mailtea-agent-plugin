@@ -6,6 +6,49 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## Unreleased
+
+- The mailtea skill says a post's `name` is only its internal name (the subject
+  is `title`), and that a post can carry its own `from` and `replyTo` through
+  `issue.create_draft` / `issue.update_draft`, with `from` checked against the
+  publication's verified domains.
+
+- The email-design skill says `arrange` addresses resolve when the op runs (an
+  earlier op in the same batch has already shifted them), and tells the agent to
+  give every delete an `expectType`: a stale address now refuses the whole op.
+- The asset guidance no longer says SVG is refused. It is accepted for site
+  pages; the skills say Gmail and Outlook do not show SVG, so email images stay
+  PNG or JPEG.
+- The `mailtea` skill now says a templated `email.send` may leave out
+  `subject`, `from` and `sender_id` (the template's published subject and sender
+  are used), and that template variables fill the subject like the body.
+- The `mailtea` skill no longer tells the agent that editing a published
+  template unpublishes it. Editing a published template, or restoring an older
+  version onto one, saves the change as unpublished changes: the template
+  keeps its published status, and automations and the API keep sending its
+  published version until `template.publish` is called again. That includes a
+  new From or Reply-To. The response's `has_unpublished_versions: true`
+  replaces the old `unpublished: true` as the signal to read.
+  `template.unpublish` is the only way to stop a published template sending,
+  short of deleting it.
+- The skill now explains `is_current` (the version that matches the design
+  being edited) and `is_published` (the version that is sending) in
+  `template.versions`.
+- The skill now says that creating a post from a template escapes the
+  variables you pass. This is a breaking change on the server: HTML passed in
+  a variable now shows up as text unless the template uses `{{{key}}}`.
+- Automations are safer to edit while they are live, and the agent sees why.
+  Saving a live automation is refused only when the edit adds a new problem;
+  problems the live version already had are marked `pre_existing` and no
+  longer block the save. Changing what starts a live automation now needs a
+  pause first (`trigger_locked_while_active`). An automation with nothing
+  after its trigger, or with a rule that reads a step that is not in the
+  automation, can't be started, unless it was already live that way.
+  Moving a rule (removing a rule beside it, or grouping it) does not make an
+  old problem new: issues about a rule carry `field`, what it reads. A
+  `validate_only` dry run on a live automation gets the same refusals as the
+  save.
+
 ## 0.5.0 (2026-09-19)
 
 - Both rules below are Mailtea Cloud only, and the skill says so — a
