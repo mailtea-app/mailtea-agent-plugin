@@ -6,6 +6,14 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## Unreleased
+
+- The mailtea skill says each `template.versions` entry carries its `from` and
+  `reply_to`, that a sender-only change records a version (or folds into the
+  open one, like any edit), that `template.restore_version` brings the sender
+  back with the design, and that an entry with `sender_recorded: false` keeps
+  the current sender.
+
 ## 0.6.0 (2026-09-28)
 
 - The mailtea skill tells the agent to read first and pass what it read to
