@@ -6,7 +6,7 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
-## Unreleased
+## 0.6.0 (2026-09-28)
 
 - The mailtea skill tells the agent to read first and pass what it read to
   `template.update` (`base_revision`), `automation.update` (`base_version`) and
