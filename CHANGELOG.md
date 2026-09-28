@@ -8,6 +8,13 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
 ## Unreleased
 
+- The mailtea skill tells the agent to read first and pass what it read to
+  `template.update` (`base_revision`), `automation.update` (`base_version`) and
+  `issue.update_draft` (`baseUpdatedAt`), so its write never overwrites a
+  change a person made in Mailtea Studio since. On a 409 it re-reads and
+  retries instead of resending. It also says a draft written with
+  `contentHtml` stays HTML until the operator chooses to convert it.
+
 - The mailtea skill says a post's `name` is only its internal name (the subject
   is `title`), and that a post can carry its own `from` and `replyTo` through
   `issue.create_draft` / `issue.update_draft`, with `from` checked against the
