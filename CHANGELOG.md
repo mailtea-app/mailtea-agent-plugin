@@ -6,7 +6,7 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
-## Unreleased
+## 0.7.0 (2026-09-29)
 
 - The mailtea skill says each `template.versions` entry carries its `from` and
   `reply_to`, that a sender-only change records a version (or folds into the
