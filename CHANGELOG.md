@@ -6,7 +6,7 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
-## Unreleased
+## 0.8.0 (2026-10-01)
 
 - The mailtea skill says how to send a post to one segment (`segmentId` on
   `issue.create_draft` / `issue.update_draft`, `null` to send to everyone
