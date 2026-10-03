@@ -6,6 +6,31 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## 0.9.0 (2026-10-03)
+
+- The Mailtea MCP server the plugin connects to labels every tool with a
+  title and the four MCP safety hints (read only, destructive, idempotent,
+  open world), so a client can ask before a send, a delete or a consent
+  change and let reads through. Sends, deletes, suppressions and
+  unsubscribes are marked destructive; anything that emails recipients,
+  changes the public website or looks up public DNS is marked open world.
+  The hosted server carries them as soon as the API deploys.
+- The Claude Code manifest (`.claude-plugin/plugin.json`) adds an `icon`
+  (`assets/mailtea-logo-512.png`, 512 by 512) and a `privacyPolicyUrl`
+  (`https://mailtea.app/privacy-policy`) for the plugin directory. The
+  existing `logo` field stays for the clients that read it.
+- The README lists more clients, each pointing at the same hosted server:
+  a one-click Add to Kiro link, Cline, Zed, Warp, JetBrains AI Assistant
+  (which needs a personal access token, since it has no browser sign-in yet;
+  Junie signs in itself), Amazon Q Developer CLI, and a custom connector row
+  for Devin, Perplexity, Mistral Le Chat and Manus. The JSON for each is in a
+  new Manual configuration section.
+- The README has a Privacy and support section with the privacy policy,
+  terms of service, support address and docs links that plugin directories
+  ask for.
+- The README no longer repeats itself: it held a cut-off first copy and a
+  duplicated second half of the page, and now holds the page once.
+
 ## 0.8.0 (2026-10-01)
 
 - The mailtea skill says how to send a post to one segment (`segmentId` on
