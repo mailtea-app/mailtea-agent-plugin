@@ -6,6 +6,14 @@ The plugin ships as a git tag on
 [mailtea-agent-plugin](https://github.com/mailtea-app/mailtea-agent-plugin) —
 there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
+## Unreleased
+
+- The `mailtea` skill explains how to send a newsletter by email only:
+  `issue.send_now` takes `publishToWeb: false`, while `issue.schedule` always
+  publishes a newsletter. It also states the recipient limit: one send
+  reaches at most 25,000 contacts by default, and a larger audience is
+  refused, so split it into segments.
+
 ## 0.9.0 (2026-10-03)
 
 - The Mailtea MCP server the plugin connects to labels every tool with a
