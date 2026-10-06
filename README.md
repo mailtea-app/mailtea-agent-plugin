@@ -2,18 +2,75 @@
 
 Send your first email. Design your next newsletter. Just ask.
 
-One package that gives an AI coding agent the **Mailtea MCP server** and three
-**skills** for email, email design, and publication websites. It targets
-[Agent Plugins 1.0.0](https://agent-plugins.org/) and carries a native manifest
-for every client that has its own format.
+Mailtea lets your AI assistant send and schedule email, check delivery, write
+and design newsletters, manage contacts, and build your publication's website,
+all from a conversation. It is for newsletter writers, creators and teams who
+send with Mailtea, and for developers who want an agent to handle email
+without writing integration code.
 
 ![Get started with Mailtea: connect your account, check your setup, and send your first email.](./assets/get-started.png)
+
+## What you get
+
+**165 tools**, grouped by what they work on:
+
+| Tool family | What your assistant can do |
+| --- | --- |
+| **Email** (`email.*`) | Send, batch, schedule, cancel and resend email, check it before sending, track delivery and engagement, and read and reply to inbound mail |
+| **Newsletters** (`issue.*`, `monetize.*`) | Draft, edit, preview, test, schedule and send newsletters, publish them to your website, follow delivery progress, and manage sponsor offers |
+| **Templates** (`template.*`) | Create, render, publish, duplicate and version reusable email templates |
+| **Audience** (`contact.*`, `contact_property.*`, `segment.*`, `topic.*`, `suppression.*`) | Manage contacts and their properties, import a CSV, build segments and topics, handle suppressions, and run referral milestones |
+| **Automations** (`automation.*`, `automation_run.*`, `event.*`, `event_definition.*`) | Build, validate, enable and measure multi-step automations, and send the custom events that start them |
+| **Website** (`site.*`, `section.*`) | Edit pages, sections, navigation, footer, theme and design brief, manage images, and publish your publication's website |
+| **Sending setup** (`domain.*`, `sender.*`) | Add and verify sending and tracking domains, and manage senders |
+| **Analytics** (`analytics.*`) | Newsletter performance, trends, poll results and CSV exports |
+| **Account** (`publication.*`, `api_key.*`, `webhook.*`, `auth.*`) | List and create publications, connect custom website domains, manage API keys and webhooks, and check who is connected |
+
+### Three skills, ready when you need them
+
+Your assistant picks the relevant skill from your request. You can also name a
+skill if you want to be explicit.
+
+| Included skill | What it helps you do | Try saying |
+| --- | --- | --- |
+| **Mailtea email** (`mailtea-email`) | Send or schedule email, check delivery, draft newsletters, and manage contacts | “Help me send my first email.” |
+| **Mailtea email design** (`mailtea-email-design`) | Design welcome emails, newsletters, and reusable templates for real inboxes | “Draft a welcome email with one clear call to action. Do not send it yet.” |
+| **Mailtea website design** (`mailtea-site-design`) | Build or restyle your publication's website, with changes saved as drafts | “Draft an About page for my publication. Do not publish it yet.” |
+
+![Mailtea includes email, email design, and website design skills.](./assets/included-skills.png)
+
+The plugin does not replace Mailtea Studio, or the SDKs and CLI for
+application code. Use it when an AI assistant should do the work for you.
+
+## Connect
+
+| Where you use AI | How to connect |
+| --- | --- |
+| **Claude.ai** | Settings, then Connectors, then Add custom connector, and paste `https://api.mailtea.app/mcp` |
+| **Claude Desktop** | Install Mailtea from Discover, or add the same custom connector as on Claude.ai |
+| **Claude Code** | `claude plugin marketplace add mailtea-app/mailtea-agent-plugin`, then `claude plugin install mailtea@mailtea` |
+| **Cursor** | Settings, then Plugins, then Add from repository: `mailtea-app/mailtea-agent-plugin` |
+| **VS Code** | Command Palette, then **MCP: Browse servers**, then Mailtea |
+| **Codex** | `codex plugin marketplace add mailtea-app/mailtea-agent-plugin`, then `codex plugin add mailtea@mailtea` |
+
+More clients, and a one-line install for each, are under
+[Get started](#get-started).
+
+The first time you connect, you sign in to Mailtea in your browser, pick one
+publication, and choose an access level from read only to full access. Your
+assistant can act only inside that publication at that level, and you can
+revoke the connection in Mailtea at any time.
+
+[Docs](https://docs.mailtea.app/docs/documentation/agent-plugin) ·
+[Support](mailto:support@mailtea.app) ·
+[Privacy policy](https://mailtea.app/privacy-policy) ·
+[Terms of service](https://mailtea.app/terms-of-service)
 
 ## Get started
 
 You need a **Mailtea account**. Sending also needs a **verified sending
 domain**. The hosted connection needs no API key, no Node.js install, and no
-code — you sign in through your browser.
+code. You sign in through your browser.
 
 | Client | Install |
 |---|---|
@@ -41,7 +98,7 @@ code — you sign in through your browser.
 
 `npx plugins add` is the universal path. The
 [`plugins` CLI](https://www.npmjs.com/package/plugins) reads this package's
-`plugin.json` and installs it into whichever agent tools it detects — Claude
+`plugin.json` and installs it into whichever agent tools it detects: Claude
 Code, Cursor, Codex, Grok Build, Kimi Code, GitHub Copilot CLI, and VS Code.
 Use `-t <target>` to pick one, and `npx plugins targets` to see what it found.
 
@@ -96,22 +153,9 @@ session and open the sign-in link it prints:
 {"mcpServers": {"mailtea": {"type": "http", "url": "https://api.mailtea.app/mcp"}}}
 ```
 
-## Three skills, ready when you need them
-
-Your agent selects the relevant skill from your request. You can also name a
-skill if you want to be explicit.
-
-| Included skill | What it helps you do | Try saying |
-| --- | --- | --- |
-| **Mailtea email** (`mailtea-email`) | Send or schedule email, check delivery, draft newsletters, and manage contacts | “Help me send my first email.” |
-| **Mailtea email design** (`mailtea-email-design`) | Design welcome emails, newsletters, and reusable templates for real inboxes | “Draft a welcome email with one clear call to action. Do not send it yet.” |
-| **Mailtea website design** (`mailtea-site-design`) | Build or restyle your publication's website, with changes saved as drafts | “Draft an About page for my publication. Do not publish it yet.” |
-
-![Mailtea includes email, email design, and website design skills.](./assets/included-skills.png)
-
 ## Copy a prompt
 
-**Send one email** — replace the bracketed details with your own:
+**Send one email.** Replace the bracketed details with your own:
 
 > Send an email from [my verified sender] to [recipient]. Subject: [subject]. Message: [body].
 
@@ -147,7 +191,7 @@ skill if you want to be explicit.
 | What you see | What to do |
 | --- | --- |
 | No Mailtea tools after installing | Open a new session, check that the plugin is enabled, and connect Mailtea. |
-| No browser sign-in prompt | Reconnect from the terminal or MCP settings — see the table below. |
+| No browser sign-in prompt | Reconnect from the terminal or MCP settings. See the table below. |
 | No publication available | Create one in Mailtea, or reconnect with access to an existing publication. |
 | No sender, or the domain is not verified | Follow [domain setup](https://docs.mailtea.app/docs/documentation/domains), complete the DNS records, and choose a sender on that domain. |
 | Permission denied | Reconnect and select access that permits the action. Ask a publication owner if that option is unavailable. |
@@ -167,10 +211,10 @@ skill if you want to be explicit.
 
 ## Package layout
 
-**The repository root is the plugin root.** Every client — Agent Plugins
-(Cursor, VS Code, Kiro, Codex), Claude Code, Grok Build, and the Gemini CLI —
-loads this one directory. There is no per-client subdirectory and no second
-copy of the skills.
+**The repository root is the plugin root.** Every client loads this one
+directory: Agent Plugins clients (Cursor, VS Code, Kiro, Codex), Claude Code,
+Grok Build, and the Gemini CLI. There is no per-client subdirectory and no
+second copy of the skills.
 
 That decision follows from Agent Plugins 1.0.0 §4.1: a path a client resolves
 from the package must stay inside the plugin root, so a nested package cannot
@@ -207,29 +251,6 @@ description, points at `skills/` and the same MCP endpoint, and carries no
 credentials. `node scripts/check-manifests.mjs` enforces that; the monorepo
 runs it as `pnpm check:agent-plugin`.
 
-## What this plugin gives an agent
-
-| Component | Role |
-|-----------|------|
-| **Mailtea MCP** | Tool catalog — `email.*`, `issue.*`, `contact.*`, `template.*`, `automation.*`, `site.*`, analytics, domains, webhooks, … |
-| **`mailtea` skill** | When and how to send transactional email, batches, newsletters, contacts, segments |
-| **`mailtea-email-design` skill** | How the email should look — structured ops (preferred) or hand-written email-safe HTML |
-| **`mailtea-site-design` skill** | Public publication site: pages, presets, theme, draft → publish |
-
-### Which Mailtea areas this covers
-
-1. **Transactional email** — send, batch, schedule, cancel, resend, delivery/open/click status
-2. **Newsletters / issues** — draft, ops edits, preview, schedule, send, web publish
-3. **Email design & templates** — structured blocks, lint, reusable templates + versions
-4. **Audience** — contacts, properties, segments, topics, suppressions, CSV import
-5. **Automations & events** — multi-step journeys, custom event ingest
-6. **Publication website** — pages, section presets, theme, draft/publish
-7. **Infrastructure** — sending domains, DNS verify, API keys, webhooks, analytics
-
-It does **not** replace Mailtea Studio or the typed
-SDKs and CLI for application code. Use the plugin when an **AI agent client**
-should operate the same control plane.
-
 ## Self-hosting and stdio
 
 The hosted server at `https://api.mailtea.app/mcp` signs in through your
@@ -255,12 +276,12 @@ in an MCP header.
 
 ## Versioning
 
-There is no npm or PyPI package — the plugin **is** this repository, so a
+There is no npm or PyPI package. The plugin **is** this repository, so a
 [release tag](https://github.com/mailtea-app/mailtea-agent-plugin/releases) is
 how you pin one. `main` always holds the latest:
 
 ```bash
-git clone --branch v0.9.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
+git clone --branch v0.10.0 --depth 1 https://github.com/mailtea-app/mailtea-agent-plugin.git
 ```
 
 Every manifest's `version` matches the tag, and each release's notes come from

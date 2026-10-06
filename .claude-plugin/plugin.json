@@ -1,11 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "mailtea",
-  "version": "0.9.0",
+  "displayName": "Mailtea",
+  "version": "0.10.0",
   "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
-  "logo": "assets/mailtea-mark.svg",
   "icon": "./assets/mailtea-logo-512.png",
   "privacyPolicyUrl": "https://mailtea.app/privacy-policy",
+  "termsOfServiceUrl": "https://mailtea.app/terms-of-service",
+  "documentationUrl": "https://docs.mailtea.app/docs/documentation/agent-plugin",
+  "supportUrl": "mailto:support@mailtea.app",
   "mcpServers": {
     "mailtea": {
       "type": "http",

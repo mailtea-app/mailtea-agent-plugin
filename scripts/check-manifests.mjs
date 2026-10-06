@@ -88,7 +88,7 @@ const referencedPaths = [
   [".codex-plugin/plugin.json mcpServers", readJson(".codex-plugin/plugin.json").mcpServers],
   [".cursor-plugin/plugin.json skills", readJson(".cursor-plugin/plugin.json").skills],
   [".cursor-plugin/plugin.json mcpServers", readJson(".cursor-plugin/plugin.json").mcpServers],
-  [".claude-plugin/plugin.json logo", readJson(".claude-plugin/plugin.json").logo],
+  [".claude-plugin/plugin.json icon", readJson(".claude-plugin/plugin.json").icon],
   [".cursor-plugin/plugin.json logo", readJson(".cursor-plugin/plugin.json").logo],
   [".grok-plugin/plugin.json logo", readJson(".grok-plugin/plugin.json").logo],
 ];
@@ -112,6 +112,19 @@ for (const [label, path] of referencedPaths) {
   if (path.includes("..")) fail(`${label}: path escapes the plugin root (${path})`);
   if (!exists(path)) fail(`${label}: ${path} does not exist`);
   else ok(`${label} -> ${path}`);
+}
+
+// The 0.9.0 icon was grayscale plus alpha: valid PNG, but an unusual encoding,
+// and the Claude plugin directory showed a generic glyph in its place. Keep the
+// icon in plain 8-bit RGBA, the encoding every renderer handles.
+const claudeIcon = readJson(".claude-plugin/plugin.json").icon;
+if (typeof claudeIcon === "string" && exists(claudeIcon)) {
+  const png = readFileSync(join(root, claudeIcon));
+  const isPng = png.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  if (!isPng || png.toString("ascii", 12, 16) !== "IHDR") fail(`${claudeIcon}: not a PNG`);
+  else if (png[24] !== 8 || png[25] !== 6) {
+    fail(`${claudeIcon}: PNG is bit depth ${png[24]}, color type ${png[25]}; expected 8-bit RGBA (color type 6)`);
+  } else ok(`${claudeIcon} is 8-bit RGBA`);
 }
 
 // ------------------------------------------------------------- marketplaces --

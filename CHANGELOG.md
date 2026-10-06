@@ -8,11 +8,41 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
 ## Unreleased
 
+- The README counts 165 tools and drops `ai.*` from the Newsletters row: the
+  MCP server removed the `ai.generate_draft` placeholder tool.
+- The Mailtea MCP server the plugin connects to marks every tool that changes
+  existing data as destructive, so Claude asks before draft edits and updates
+  as well as deletes and sends. Failed calls come back as readable tool
+  results, and long bodies and the suppression export are paged. This ships
+  with the hosted server; the plugin's files do not change for it.
+
+## 0.10.0 (2026-10-06)
+
 - The `mailtea` skill explains how to send a newsletter by email only:
   `issue.send_now` takes `publishToWeb: false`, while `issue.schedule` always
   publishes a newsletter. It also states the recipient limit: one send
   reaches at most 25,000 contacts by default, and a larger audience is
   refused, so split it into segments.
+- The Claude manifest (`.claude-plugin/plugin.json`) adds
+  `displayName: "Mailtea"`, so plugin directories show "Mailtea" instead of
+  the lowercase package name.
+- The plugin icon is fixed. The `assets/mailtea-logo-*.png` files were
+  grayscale plus alpha, a valid but unusual PNG encoding, and the Claude plugin
+  directory showed a generic glyph instead of the logo. They are now standard
+  8-bit RGBA with the same pixels. `scripts/check-manifests.mjs` checks that
+  the Claude `icon` exists and is 8-bit RGBA.
+- The Claude manifest drops the `logo` key, which Claude does not recognise
+  and `claude plugin validate --strict` rejected, and keeps `icon`. The
+  Cursor, Grok and Codex manifests keep their own `logo`.
+- The Claude manifest adds listing links next to `privacyPolicyUrl`:
+  `termsOfServiceUrl` (`https://mailtea.app/terms-of-service`),
+  `documentationUrl` (the Agent Plugin docs page) and `supportUrl`
+  (`mailto:support@mailtea.app`).
+- The README opens with a listing description: what the plugin does and who
+  it is for, the 166 tools by family, the three skills, how to connect from
+  Claude.ai, Claude Desktop, Claude Code, Cursor, VS Code and Codex, how
+  consent and publication scoping work, and links to docs, support and
+  privacy. The install details follow.
 
 ## 0.9.0 (2026-10-03)
 
