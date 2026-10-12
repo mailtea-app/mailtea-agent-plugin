@@ -31,6 +31,7 @@
       "Write"
     ],
     "websiteURL": "https://mailtea.app",
+    "supportURL": "https://docs.mailtea.app/docs/documentation/agent-plugin",
     "privacyPolicyURL": "https://mailtea.app/privacy-policy",
     "termsOfServiceURL": "https://mailtea.app/terms-of-service",
     "defaultPrompt": [
@@ -39,11 +40,71 @@
       "Check my recent Mailtea emails and explain any failed deliveries."
     ],
     "brandColor": "#2158ff",
+    "brandColorDark": "#8CB4FF",
     "composerIcon": "./assets/mailtea-mark.svg",
     "logo": "./assets/mailtea-mark.svg",
     "screenshots": [
       "./assets/get-started.png",
       "./assets/included-skills.png"
     ]
+  },
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/mailtea/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the user's publications",
+              "prompt": "Which Mailtea publications do I have?",
+              "tools_triggered": "publication.list",
+              "expected_behavior": "Names Demo Weekly and Demo Second with their ids. Nothing changes."
+            },
+            {
+              "description": "Count and list contacts",
+              "prompt": "How many contacts does Demo Weekly have, and which are subscribed?",
+              "tools_triggered": "contact.list",
+              "expected_behavior": "Lists the seeded contacts with email and status. The count matches Mailtea Studio."
+            },
+            {
+              "description": "Create a newsletter draft without sending",
+              "prompt": "Draft a short welcome newsletter for Demo Weekly titled \"Welcome to Demo Weekly\" with one call to action. Do not send it.",
+              "tools_triggered": "issue.create_draft",
+              "expected_behavior": "Returns a new draft with its id. It stays a draft and shows in Mailtea Studio. No email is sent."
+            },
+            {
+              "description": "Send a test copy of a draft to the reviewer",
+              "prompt": "Send a test copy of the \"Welcome to Demo Weekly\" draft to [reviewer email] from hello@demo.somi.ai.",
+              "tools_triggered": "issue.list_recent, issue.send_test",
+              "expected_behavior": "ChatGPT asks for confirmation first. One copy with a [TEST] subject prefix reaches the reviewer address only. Subscribers get nothing and the post stays a draft."
+            },
+            {
+              "description": "Send a transactional email and check delivery",
+              "prompt": "Send an email from hello@demo.somi.ai to [reviewer email] with the subject \"Hello from ChatGPT\" and the body \"This is a test.\" Then tell me if it was delivered.",
+              "tools_triggered": "email.send, email.get",
+              "expected_behavior": "ChatGPT asks for confirmation first. email.send returns an email id and email.get reports its delivery status. The email reaches the reviewer address because demo.somi.ai is a verified sending domain."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Data outside the granted publication. Expected: refused with \"Token is restricted to a different publication\"; the connection covers Demo Weekly only.",
+              "prompt": "List the contacts in Demo Second."
+            },
+            {
+              "description": "No destructive call when only a review was asked. Expected: read-only calls only; nothing sent, scheduled or deleted.",
+              "prompt": "Is my \"Welcome to Demo Weekly\" draft ready to go out?"
+            },
+            {
+              "description": "Built-in sender cannot reach an outside address. Expected: refused with reason system_domain_recipient_restricted and restriction built_in_sender; the assistant suggests hello@demo.somi.ai.",
+              "prompt": "Send an email from onboarding@hazel-delta.mailtea.email to [an address outside the team]."
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "release_notes": "First directory release. 165 MCP tools for transactional email, newsletters, contacts, automations, templates, domains and the publication website, plus three skills for email, email design and website design."
+      }
+    }
   }
 }

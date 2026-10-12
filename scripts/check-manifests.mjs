@@ -201,6 +201,40 @@ for (const skill of skillNames) {
   }
 }
 
+// ------------------------------------------------------- OpenAI review --
+
+// The OpenAI plugin directory review needs a support URL (HTTPS only), a dark
+// brand color, an onboarding skill that resolves, and exactly five positive and
+// three negative test cases. Positive cases carry the four fields the reviewer
+// uses to run them. A missing field is caught here, not after submission.
+const codexManifest = readJson(".codex-plugin/plugin.json");
+const codexListing = codexManifest.interface ?? {};
+if (typeof codexListing.supportURL !== "string" || !/^https:\/\//.test(codexListing.supportURL)) {
+  fail(`.codex-plugin/plugin.json interface.supportURL must be an https URL, got ${JSON.stringify(codexListing.supportURL)}`);
+} else ok("interface.supportURL is https");
+if (typeof codexListing.brandColorDark !== "string" || !/^#[0-9A-Fa-f]{6}$/.test(codexListing.brandColorDark)) {
+  fail(`.codex-plugin/plugin.json interface.brandColorDark must be #RRGGBB, got ${JSON.stringify(codexListing.brandColorDark)}`);
+} else ok("interface.brandColorDark is #RRGGBB");
+
+const openaiExtension = codexManifest.extensions?.["com.openai"];
+const onboardingSkill = openaiExtension?.onboardingSkill;
+if (typeof onboardingSkill !== "string" || !exists(onboardingSkill)) {
+  fail(`.codex-plugin/plugin.json extensions.com.openai.onboardingSkill does not resolve: ${JSON.stringify(onboardingSkill)}`);
+} else ok(`onboarding skill resolves -> ${onboardingSkill}`);
+
+const reviewCases = openaiExtension?.review?.test_cases ?? {};
+const positiveCases = reviewCases.positive ?? [];
+const negativeCases = reviewCases.negative ?? [];
+if (positiveCases.length !== 5) fail(`review.test_cases.positive must have exactly 5 cases, has ${positiveCases.length}`);
+if (negativeCases.length !== 3) fail(`review.test_cases.negative must have exactly 3 cases, has ${negativeCases.length}`);
+positiveCases.forEach((testCase, index) => {
+  const absent = ["description", "prompt", "tools_triggered", "expected_behavior"].filter(
+    (field) => typeof testCase?.[field] !== "string" || testCase[field].trim() === ""
+  );
+  if (absent.length > 0) fail(`positive test case ${index + 1} is missing ${absent.join(", ")}`);
+});
+if (positiveCases.length === 5 && negativeCases.length === 3) ok("review test cases: 5 positive, 3 negative");
+
 // ---------------------------------------------------------------- MCP URLs --
 
 // Four files declare the same endpoint in four dialects. They must agree, and
