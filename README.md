@@ -1,6 +1,6 @@
 # Mailtea Agent Plugin
 
-Send your first email. Design your next newsletter. Just ask.
+Send email and newsletters. Just ask.
 
 Mailtea lets your AI assistant send and schedule email, check delivery, write
 and design newsletters, manage contacts, and build your publication's website,

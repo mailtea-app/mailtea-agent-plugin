@@ -235,6 +235,25 @@ positiveCases.forEach((testCase, index) => {
 });
 if (positiveCases.length === 5 && negativeCases.length === 3) ok("review test cases: 5 positive, 3 negative");
 
+// The OpenAI plugin directory rejects a listing that exceeds these limits, so
+// check them here before submission rather than after a rejected review.
+const listingLimits = [
+  ["interface.displayName", codexListing.displayName, 30],
+  ["interface.shortDescription", codexListing.shortDescription, 30],
+  ["interface.longDescription", codexListing.longDescription, 4000],
+  ["interface.developerName", codexListing.developerName, 80],
+];
+for (const [label, value, max] of listingLimits) {
+  if (typeof value !== "string" || value.length > max) {
+    fail(`.codex-plugin/plugin.json ${label} must be at most ${max} characters, is ${value?.length ?? 0}`);
+  } else ok(`${label} within ${max} characters`);
+}
+(codexListing.defaultPrompt ?? []).forEach((prompt, index) => {
+  if (typeof prompt !== "string" || prompt.length > 128) {
+    fail(`.codex-plugin/plugin.json interface.defaultPrompt[${index}] must be at most 128 characters, is ${prompt?.length ?? 0}`);
+  }
+});
+
 // ---------------------------------------------------------------- MCP URLs --
 
 // Four files declare the same endpoint in four dialects. They must agree, and

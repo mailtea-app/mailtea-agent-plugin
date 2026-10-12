@@ -15,6 +15,10 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
   as well as deletes and sends. Failed calls come back as readable tool
   results, and long bodies and the suppression export are paged. This ships
   with the hosted server; the plugin's files do not change for it.
+- The Codex listing subtitle is now "Send email and newsletters", within the
+  30 character limit OpenAI's plugin portal enforces. The manifest check now
+  also enforces the listing limits on the display name, subtitle, long
+  description, developer name and default prompts.
 
 ## 0.10.0 (2026-10-06)
 
