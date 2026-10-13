@@ -19,6 +19,12 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
   30 character limit OpenAI's plugin portal enforces. The manifest check now
   also enforces the listing limits on the display name, subtitle, long
   description, developer name and default prompts.
+- The `mailtea` and `mailtea-site-design` skills no longer say every site
+  write goes to the draft. `site.apply_ops` edits the draft, but
+  `site.page_upsert` writes a page's live document, so a published page
+  changes for visitors at once. The skills now say so, and that a pending
+  draft on the page is kept and replaces the upsert on the next
+  `site.publish`.
 
 ## 0.10.0 (2026-10-06)
 
