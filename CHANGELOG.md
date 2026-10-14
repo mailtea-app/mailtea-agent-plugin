@@ -8,6 +8,11 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
 ## Unreleased
 
+- The Codex manifest now carries the review demo recording link in
+  `extensions["com.openai"].review.demo_recording_url`: an unlisted YouTube
+  video of the ChatGPT flow (connect, grant Demo Weekly, list publications and
+  contacts, draft, test send, a refused unsafe send, the delivered fix,
+  disconnect).
 - The README counts 165 tools and drops `ai.*` from the Newsletters row: the
   MCP server removed the `ai.generate_draft` placeholder tool.
 - The Mailtea MCP server the plugin connects to marks every tool that changes
