@@ -87,7 +87,6 @@ const referencedPaths = [
   [".codex-plugin/plugin.json skills", readJson(".codex-plugin/plugin.json").skills],
   [".codex-plugin/plugin.json mcpServers", readJson(".codex-plugin/plugin.json").mcpServers],
   [".cursor-plugin/plugin.json skills", readJson(".cursor-plugin/plugin.json").skills],
-  [".cursor-plugin/plugin.json mcpServers", readJson(".cursor-plugin/plugin.json").mcpServers],
   [".claude-plugin/plugin.json icon", readJson(".claude-plugin/plugin.json").icon],
   [".cursor-plugin/plugin.json logo", readJson(".cursor-plugin/plugin.json").logo],
   [".grok-plugin/plugin.json logo", readJson(".grok-plugin/plugin.json").logo],
@@ -190,6 +189,11 @@ for (const skill of skillNames) {
   const missing = ["name", "description"].filter((key) => !new RegExp(`^${key}:\\s*\\S`, "m").test(frontmatter));
   if (missing.length > 0) fail(`${relative}: frontmatter missing ${missing.join(", ")}`);
   else ok(`skill ${skill} (frontmatter name + description)`);
+  // Agent Skills spec: name must equal the parent directory (Cursor checks it).
+  const declared = /^name:\s*["']?([^"'\r\n]+?)["']?\s*$/m.exec(frontmatter)?.[1];
+  if (declared !== undefined && declared !== skill) {
+    fail(`${relative}: frontmatter name "${declared}" must equal its directory "${skill}"`);
+  }
 }
 
 // The skills are client-neutral: the package installs into many clients, so no
@@ -262,6 +266,8 @@ const endpoints = [
   ["mcp.json", readJson("mcp.json").mcpServers?.mailtea, "streamable-http", (s) => s?.url],
   [".mcp.json", readJson(".mcp.json").mcpServers?.mailtea, "http", (s) => s?.url],
   [".claude-plugin/plugin.json", readJson(".claude-plugin/plugin.json").mcpServers?.mailtea, "http", (s) => s?.url],
+  // Cursor infers transport from the url, so its inline config carries no type.
+  [".cursor-plugin/plugin.json", readJson(".cursor-plugin/plugin.json").mcpServers?.mailtea, undefined, (s) => s?.url],
   ["gemini-extension.json", readJson("gemini-extension.json").mcpServers?.mailtea, undefined, (s) => s?.httpUrl],
   ["server.json", server.remotes?.[0], "streamable-http", (s) => s?.url],
 ];
@@ -290,6 +296,24 @@ if (readJson("mcp.json").$schema !== "https://agent-plugins.org/schemas/1.0.0/mc
 }
 if (portable.$schema !== "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json") {
   fail("plugin.json $schema must be the Agent Plugins 1.0.0 plugin schema");
+}
+
+// ----------------------------------------------------- Cursor schema shape --
+
+// Mirrors cursor/plugins schemas/plugin.schema.json and marketplace.schema.json
+// (draft-07, additionalProperties: false). Cursor's marketplace review rejects
+// any other key, so a "helpful" url or version here fails the submission.
+const cursorAuthorKeys = ["name", "email"];
+const cursorMarketplacePluginKeys = ["name", "source", "description", "minClientVersions"];
+for (const key of Object.keys(readJson(".cursor-plugin/plugin.json").author ?? {})) {
+  if (!cursorAuthorKeys.includes(key)) fail(`.cursor-plugin/plugin.json author.${key} is not allowed (name, email only)`);
+}
+for (const [index, entry] of (readJson(".cursor-plugin/marketplace.json").plugins ?? []).entries()) {
+  for (const key of Object.keys(entry)) {
+    if (!cursorMarketplacePluginKeys.includes(key)) {
+      fail(`.cursor-plugin/marketplace.json plugins[${index}].${key} is not allowed by Cursor's schema (${cursorMarketplacePluginKeys.join(", ")})`);
+    }
+  }
 }
 
 // -------------------------------------------------------------- changelog --

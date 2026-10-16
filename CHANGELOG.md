@@ -8,6 +8,13 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
 ## Unreleased
 
+- The Cursor manifests now pass Cursor's own schemas: the author carries only a
+  name and email, the marketplace entry carries only the keys Cursor allows,
+  and the MCP server is declared inline by URL so Cursor infers the transport.
+  The email skill folder is now `skills/mailtea-email/` so it matches its
+  `mailtea-email` name. `check-manifests.mjs` guards all three.
+- The hosted MCP server's `email.inbound_reply` takes `to` and `headers`.
+- The hosted Mailtea MCP server adds `api_key.current` and takes `attachments` on `email.inbound_reply`. Available as soon as the API deploys; no plugin change is needed.
 - The Codex manifest now carries the review demo recording link in
   `extensions["com.openai"].review.demo_recording_url`: an unlisted YouTube
   video of the ChatGPT flow (connect, grant Demo Weekly, list publications and

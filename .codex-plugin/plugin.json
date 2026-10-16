@@ -50,7 +50,7 @@
   },
   "extensions": {
     "com.openai": {
-      "onboardingSkill": "./skills/mailtea/SKILL.md",
+      "onboardingSkill": "./skills/mailtea-email/SKILL.md",
       "review": {
         "demo_recording_url": "https://youtu.be/mpUsMXUr6oE",
         "test_cases": {

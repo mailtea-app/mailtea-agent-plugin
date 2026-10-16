@@ -1,22 +1,17 @@
 {
   "name": "mailtea",
   "metadata": {
-    "description": "Mailtea plugins for Cursor \u2014 email, email design, and publication websites."
+    "description": "Mailtea plugins for Cursor: email, email design and publication websites."
   },
   "owner": {
-    "name": "Mailtea"
+    "name": "Mailtea",
+    "email": "support@mailtea.app"
   },
   "plugins": [
     {
       "name": "mailtea",
       "source": "./",
-      "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design.",
-      "version": "0.10.0",
-      "category": "productivity",
-      "homepage": "https://mailtea.app",
-      "repository": "https://github.com/mailtea-app/mailtea-agent-plugin",
-      "license": "MIT",
-      "logo": "assets/mailtea-mark.svg"
+      "description": "Send email and newsletters with Mailtea over MCP, plus skills for email and website design."
     }
   ]
 }
