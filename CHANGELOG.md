@@ -8,6 +8,8 @@ there is no npm or PyPI package — so `v<version>` here is what a client pins.
 
 ## Unreleased
 
+- The hosted Mailtea MCP server adds `automation.preview_step`, which renders what an automation's `send_email` step would send (nothing is sent) so a mistyped variable mapping is caught before `automation.enable`. Available as soon as the API deploys; no plugin change is needed. The README counts 167 tools.
+- The hosted MCP server documents `send_email` template variants (`config.variants`, first match wins) and `automation.preview_step` takes `variant`. No plugin change is needed.
 - The Cursor manifests now pass Cursor's own schemas: the author carries only a
   name and email, the marketplace entry carries only the keys Cursor allows,
   and the MCP server is declared inline by URL so Cursor infers the transport.

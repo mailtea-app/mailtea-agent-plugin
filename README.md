@@ -12,7 +12,7 @@ without writing integration code.
 
 ## What you get
 
-**165 tools**, grouped by what they work on:
+**167 tools**, grouped by what they work on:
 
 | Tool family | What your assistant can do |
 | --- | --- |
@@ -20,7 +20,7 @@ without writing integration code.
 | **Newsletters** (`issue.*`, `monetize.*`) | Draft, edit, preview, test, schedule and send newsletters, publish them to your website, follow delivery progress, and manage sponsor offers |
 | **Templates** (`template.*`) | Create, render, publish, duplicate and version reusable email templates |
 | **Audience** (`contact.*`, `contact_property.*`, `segment.*`, `topic.*`, `suppression.*`) | Manage contacts and their properties, import a CSV, build segments and topics, handle suppressions, and run referral milestones |
-| **Automations** (`automation.*`, `automation_run.*`, `event.*`, `event_definition.*`) | Build, validate, enable and measure multi-step automations, and send the custom events that start them |
+| **Automations** (`automation.*`, `automation_run.*`, `event.*`, `event_definition.*`) | Build, validate, preview, enable and measure multi-step automations, and send the custom events that start them |
 | **Website** (`site.*`, `section.*`) | Edit pages, sections, navigation, footer, theme and design brief, manage images, and publish your publication's website |
 | **Sending setup** (`domain.*`, `sender.*`) | Add and verify sending and tracking domains, and manage senders |
 | **Analytics** (`analytics.*`) | Newsletter performance, trends, poll results and CSV exports |
