@@ -70,6 +70,18 @@ Text fields take inline markup — `**bold**`, `*italic*`, `[label](https://url)
 and nothing else. **A `\n` inside one text block becomes a line break**; for two
 visually separate lines with normal spacing, use two blocks.
 
+### Where a block appears (`visibility`)
+
+Any block can carry `visibility`: `all` (default), `email`, or `web`. Footers
+and logos default to `email` (the site has its own); give one
+`visibility: "all"` to keep it on the web page. Set it with
+`edit_block` `attrs:{visibility}`, or as `visibility` on a block in `compose` or
+`insert_blocks`. The outline shows it when it is not `all`. Check each version
+with `issue.preview` and `channel: "email"` or `"web"`. A post where every block
+is `web` has an empty email: the send is accepted, then the post is marked failed
+with the reason `email_channel_empty` (in `issue.delivery_progress` and
+`issue.wait_delivery`). Studio's Review warns first.
+
 ### Brand colour — `set_styles` tokens
 
 ```json
