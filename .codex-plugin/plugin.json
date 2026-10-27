@@ -23,9 +23,9 @@
   "interface": {
     "displayName": "Mailtea",
     "shortDescription": "Send email and newsletters",
-    "longDescription": "Send and schedule email, check delivery, design newsletters, manage contacts, and build your publication website from a conversation. Connect your Mailtea account, choose your publication, then ask: \u201cHelp me send my first email.\u201d Mailtea checks your setup and guides you through any missing sender or domain verification. Three included skills handle email, email design, and website design automatically. No API key, Node.js, or coding is needed for the hosted connection. You need a Mailtea account and a verified sending domain to send. Draft requests stay drafts; sending uses the recipients and content you specify.",
+    "longDescription": "Mailtea is an email platform for sending transactional email and newsletters from a conversation. Send and schedule email, check delivery, and manage the contacts who receive it. Connect your Mailtea account, choose your publication, then ask: \u201cHelp me send my first email.\u201d Mailtea checks your setup and guides you through any missing sender or domain verification. Three included skills help write and design emails and build the website your newsletter lives on. No API key, Node.js, or coding is needed for the hosted connection. You need a Mailtea account and a verified sending domain to send. Draft requests stay drafts; sending uses the recipients and content you specify.",
     "developerName": "Mailtea",
-    "category": "Productivity",
+    "category": "Communication",
     "capabilities": [
       "Interactive",
       "Write"
